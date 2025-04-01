@@ -1,0 +1,176 @@
+* {
+  /*REMOVENDO MARGENS E PREENCHIMENTOS PADRÕES*/
+  margin: 0; /*Margem padrão*/
+  padding: 0; /*Preenchimento padrão*/
+  box-sizing: border-box; /*Ajusta o tamanho das caixas da página*/
+}
+
+:root /* RAIZ DO DOCUMENTO */ {
+  /*DEFININDO AS CORES PRINCIPAIS DO TEMA ESCURO*/
+  --text-color: white; /*Cor do texto*/
+  --bg-url: url(./assets/black.jpg); /*Imagem de fundo*/
+  --stroke-color: rgba(255, 255, 255, 0.5); /*Cor da borda*/
+  --surface-color: rgba(255, 255, 255, 0.05); /*Cor de superfície*/
+  --surface-color-hover: rgba(255, 255, 255, 0.02); /*Cor de superfície ao passar o cursor do mouse*/
+  --highlight-color: rgba(255, 255, 255, 0.1); /*Cor dos ícones*/
+  --switch-bg-url: url(./assets/moon-stars.svg); /*Imagem do botão*/
+}
+
+.light {
+  /*DEFININDO AS CORES PRINCIPAIS DO TEMA CLARO*/
+  --text-color: black; /*Cor do texto*/
+  --bg-url: url(./assets/white.jpg); /*Imagem de fundo*/
+  --stroke-color: rgba(0, 0, 0, 0.5); /*Cor da borda*/
+  --surface-color: rgba(0, 0, 0, 0.05); /*Cor de superfície*/
+  --surface-color-hover: rgba(0, 0, 0, 0.02); /*Cor de superfície ao passar o cursor do mouse*/
+  --highlight-color: rgba(0, 0, 0, 0.1); /*Cor dos ícones*/
+  --switch-bg-url: url(./assets/sun.svg); /*Imagem do botão*/
+}
+
+
+body {
+  /*APLICANDO O FUNDO DA PÁGINA*/
+  background-image: var(--bg-url); /*Aplicando a imagem no fundo*/
+  background-repeat: no-repeat; /*Não repete a imagem*/
+  background-position: top center; /*Centraliza a imagem começando pelo topo da imagem*/
+  background-size: cover; /*Preenche todo o espaço visível*/
+}
+
+body * {
+  /*AJUSTANDO A FONTE*/
+  font-family: "Inter", sans-serif; /*Fonte da página*/
+  color: var(--text-color); /*Cor do texto*/
+  font-optical-sizing: auto; /*Tamanho da fonte*/
+  font-weight: 500; /*Peso da fonte*/
+  font-style: normal; /*Estilo da fonte*/
+}
+
+#container {
+  /*ESTILIZANDO O CONTAINER*/
+  width: 360px; /*Largura do container*/
+  margin: auto; /*Centraliza o container*/
+  margin-top: 56px; /*Margem superior do container*/
+  padding: 0px 24px; /*Preenchimento do container*/
+}
+
+/*PROFILE*/
+#profile {
+  /*ESTILIZANDO O PERFIL*/
+  text-align: center; /*Centraliza o conteúdo*/
+  padding: 24px; /*Preenchimento do conteúdo*/
+}
+
+#profile img {
+  /*ESTILIZANDO A IMAGEM*/
+  width: 112px; /*Largura da imagem*/
+}
+
+#profile p {
+  /*ESTILIZANDO O TEXTO*/
+  font-weight: 500; /*Peso da fonte*/
+  line-height: 24px; /*Altura da linha*/
+  margin-top: 8px; /*Margem superior*/
+}
+
+/*SWITCH/BOTÃO*/
+#switch {
+  position: relative; /*Posicionamento relativo*/
+  width: 64px; /*Largura do switch*/
+
+  margin: 4px auto; /*Margem do switch*/
+}
+
+#switch button {
+  width: 32px; /*Largura do botão*/
+  height: 32px; /*Altura do botão*/
+  background: white var(--switch-bg-url) no-repeat center; /*Cor de fundo do botão*/
+  border: 0; /*Remove a borda do botão*/
+  border-radius: 50%; /*Borda arredondada do botão*/
+  
+  position: absolute; /*Posicionamento absoluto*/
+  z-index: 1; /*Posiciona o botão acima do track*/
+  left: 0; /*Alinha o botão à direita*/
+  top: 50%; /*Alinha o botão ao centro*/
+  transform: translateY(-50%); /*Centraliza o botão na vertical*/
+}
+
+.light #switch button {
+  left: initial; /*Volta para a posição inicial*/
+  right: 0; /*Alinha o botão à direita*/
+}
+#switch span {
+  display: block; /*Exibe o elemento em bloco*/
+  width: 64px; /*Largura do track*/
+  height: 24px; /*Altura do track*/
+  background: var(--surface-color); /*Cor de fundo do botão*/
+  border: 1px solid var(--stroke-color); /*Borda do track*/
+  backdrop-filter: blur(4px); /*Aplica um efeito de desfoque no fundo*/
+  border-radius: 9999px; /*Borda arredondada do track*/
+}
+/*LINKS*/
+ul {
+  /*ESTILIZANDO A LISTA*/
+  list-style: none; /*Remove a bolinha da lista*/
+
+  display: flex; /*Exibe os itens em linha*/
+  flex-direction: column; /*Alinha os itens em coluna*/
+  gap: 16px; /*Espaçamento entre os itens*/
+
+  padding: 24px 0px; /*Preenchimento dos itens*/
+}
+
+ul li a {
+  /*ESTILIZANDO OS ITENS DA LISTA*/
+  border: 1px solid gray;
+  display: flex; /*Exibe os itens em linha*/
+  align-items: center; /*Centraliza os itens na horizontal*/
+  justify-content: center; /*Centraliza os itens na vertical*/
+  padding: 16px 24px; /*Preenchimento dos itens*/
+  
+  background: var(--surface-color); /*Cor de fundo dos itens*/
+  border: 1px solid var(--stroke-color); /*Borda dos itens*/
+  border-radius: 8px; /*Borda arredondada dos itens*/
+  backdrop-filter: blur(4px); /*Aplica um efeito de desfoque no fundo*/
+
+  text-decoration: none; /*Remove a decoração do texto*/
+  font-weight: 500; /*Peso da fonte*/
+
+  transition: background 0.25s; /*Transição de cor de fundo dos itens*/
+}
+
+/*PSEUDO-SELECTOR*/
+ul li a:hover {
+  /*ESTILIZANDO O HOVER DOS ITENS DA LISTA*/
+  background: var(--surface-color-hover); /*Cor de fundo dos itens*/
+  border: 1.5px solid var(--text-color); /*Borda dos itens*/
+}
+
+/*SOCIAL LINKS*/
+#social-links {
+  display: flex; /*Exibe os itens em linha*/
+  justify-content: center; /*Centraliza os itens na horizontal*/
+
+  padding: 24px 0px; /*Preenchimento dos itens*/
+
+  font-size: 24px; /*Tamanho dos ícones*/
+}
+
+#social-links a{
+  display: flex; /*Exibe os itens em linha*/
+  align-items: center; /*Centraliza os itens na horizontal*/
+  justify-content: center; /*Centraliza os itens na vertical*/
+  padding: 16px; /*Preenchimento dos itens*/
+
+  transition: 0.25s; /*Transição de cor de fundo dos ícones*/
+  border-radius: 50%; /*Borda arredondada dos ícones*/
+}
+#social-links a:hover {
+  /*ESTILIZANDO O HOVER DOS ÍCONES*/
+  background: var(--highlight-color); /*Cor de fundo dos ícones*/
+  
+}
+footer {
+  padding: 24px 0px; /*Preenchimento do rodapé*/
+  text-align: center; /*Centraliza o conteúdo*/
+  font-size: 14px; /*Tamanho da fonte*/
+}
