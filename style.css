@@ -8,7 +8,7 @@
 :root /* RAIZ DO DOCUMENTO */ {
   /*DEFININDO AS CORES PRINCIPAIS DO TEMA ESCURO*/
   --text-color: white; /*Cor do texto*/
-  --bg-url: url(./assets/black.jpg); /*Imagem de fundo*/
+  --bg-url: url(./assets/bg-mobile.jpg); /*Imagem de fundo*/
   --stroke-color: rgba(255, 255, 255, 0.5); /*Cor da borda*/
   --surface-color: rgba(255, 255, 255, 0.05); /*Cor de superfície*/
   --surface-color-hover: rgba(255, 255, 255, 0.02); /*Cor de superfície ao passar o cursor do mouse*/
@@ -19,7 +19,7 @@
 .light {
   /*DEFININDO AS CORES PRINCIPAIS DO TEMA CLARO*/
   --text-color: black; /*Cor do texto*/
-  --bg-url: url(./assets/white.jpg); /*Imagem de fundo*/
+  --bg-url: url(./assets/bg-mobile-light.jpg); /*Imagem de fundo*/
   --stroke-color: rgba(0, 0, 0, 0.5); /*Cor da borda*/
   --surface-color: rgba(0, 0, 0, 0.05); /*Cor de superfície*/
   --surface-color-hover: rgba(0, 0, 0, 0.02); /*Cor de superfície ao passar o cursor do mouse*/
@@ -34,6 +34,7 @@ body {
   background-repeat: no-repeat; /*Não repete a imagem*/
   background-position: top center; /*Centraliza a imagem começando pelo topo da imagem*/
   background-size: cover; /*Preenche todo o espaço visível*/
+  height: 100vh; /*Preenche toda a altura visível*/
 }
 
 body * {
@@ -174,4 +175,14 @@ footer {
   padding: 24px 0px; /*Preenchimento do rodapé*/
   text-align: center; /*Centraliza o conteúdo*/
   font-size: 14px; /*Tamanho da fonte*/
+}
+
+/*MEDIA QUERIES*/
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg); /*Imagem de fundo para telas maiores*/
+  }
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg); /*Imagem de fundo para telas maiores no tema claro*/
+  }
 }
