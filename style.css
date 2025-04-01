@@ -94,12 +94,19 @@ body * {
   left: 0; /*Alinha o botão à direita*/
   top: 50%; /*Alinha o botão ao centro*/
   transform: translateY(-50%); /*Centraliza o botão na vertical*/
+
+  animation: slide-out 0.4s; /*Animação do botão*/
 }
 
 .light #switch button {
-  left: initial; /*Volta para a posição inicial*/
-  right: 0; /*Alinha o botão à direita*/
+  animation: slide-in 0.4s forwards; /*Animação do botão*/
 }
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color); /*Efeito ao passar o mouse sobre o botão*/
+
+}
+
 #switch span {
   display: block; /*Exibe o elemento em bloco*/
   width: 64px; /*Largura do track*/
@@ -109,6 +116,7 @@ body * {
   backdrop-filter: blur(4px); /*Aplica um efeito de desfoque no fundo*/
   border-radius: 9999px; /*Borda arredondada do track*/
 }
+
 /*LINKS*/
 ul {
   /*ESTILIZANDO A LISTA*/
@@ -184,5 +192,24 @@ footer {
   }
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg); /*Imagem de fundo para telas maiores no tema claro*/
+  }
+}
+
+/*ANIMATION*/
+@keyframes slide-in {
+  from {
+    left: 0; /*Ínicio do percurso do botão*/
+  }
+  to {
+    left: 50%; /*Fim do percurso do botão*/
+  }
+}
+
+@keyframes slide-out {
+  from {
+    left: 50%; /*Ínicio do percurso do botão*/
+  }
+  to {
+    left: 0; /*Fim do percurso do botão*/
   }
 }
